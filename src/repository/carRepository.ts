@@ -1,8 +1,7 @@
-import db from "../config/database.js";
+import prisma from "../config/database";
 
 async function getCars() {
-  const data = await db.query(`SELECT * FROM cars`);
-  return data.rows;
+  return prisma.cars.findMany();
 }
 
 async function getCar(id: number) {
